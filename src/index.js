@@ -55,7 +55,7 @@ export default class AnimatedLoadingButton extends PureComponent {
     loadingStyle: PropTypes.object,
     loadingProps: PropTypes.object,
     onPress: PropTypes.func.isRequired,
-    TouchableComponent: PropTypes.element,
+    TouchableComponent: PropTypes.oneOfType([PropTypes.element, PropTypes.object]),
     duration: PropTypes.number,
     raised: PropTypes.bool,
     disabled: PropTypes.bool,
@@ -136,13 +136,19 @@ export default class AnimatedLoadingButton extends PureComponent {
 
     Animated.timing(maxWidth, {
       toValue: maxWidthEnd,
-      duration
+      duration,
+      useNativeDriver: true,
     }).start();
     Animated.timing(borderRadius, {
       toValue: borderRadiusEnd,
-      duration
+      duration,
+      useNativeDriver: true,
     }).start();
-    Animated.timing(opacity, { toValue: opacityEnd, duration }).start();
+    Animated.timing(opacity, {
+      toValue: opacityEnd,
+      duration,
+      useNativeDriver: true,
+    }).start();
   }
 
   onLayout = e => {
