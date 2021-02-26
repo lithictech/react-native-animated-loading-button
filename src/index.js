@@ -137,17 +137,17 @@ export default class AnimatedLoadingButton extends PureComponent {
     Animated.timing(maxWidth, {
       toValue: maxWidthEnd,
       duration,
-      useNativeDriver: true,
+      useNativeDriver: false,
     }).start();
     Animated.timing(borderRadius, {
       toValue: borderRadiusEnd,
       duration,
-      useNativeDriver: true,
+      useNativeDriver: false,
     }).start();
     Animated.timing(opacity, {
       toValue: opacityEnd,
       duration,
-      useNativeDriver: true,
+      useNativeDriver: false,
     }).start();
   }
 
